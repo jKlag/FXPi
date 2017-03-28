@@ -1,0 +1,3 @@
+-servertest.py receives a command to either turn on or turn off Digital Signal Processing via TCP connection
+-clienttest.py sends a command to servertest to either turn on or turn off DSP
+-GuitarExtended-WhaAuto.pd is a pre-made Pure Data guitar effects page that was modified to receive a command via python script to turn DSP on/off
