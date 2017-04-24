@@ -28,7 +28,7 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
         os.system("echo '" + str(effect) + ' ' + str(cmd) + ";' | /Applications/Pd-0.47-1-64bit.app/Contents/Resources/bin/pdsend 3000")
 
 if __name__ == "__main__":
-    HOST, PORT = "localhost", 9996
+    HOST, PORT = "129.59.32.80", 9996
 
     # Create the server, binding to localhost on port 9999
     server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)
