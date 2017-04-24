@@ -32,8 +32,12 @@ if __name__ == "__main__":
 
     # Create the server, binding to localhost on port 9999
     server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)
+    """
     os.system("echo '1 0;' | /Applications/Pd-0.47-1-64bit.app/Contents/Resources/bin/pdsend 3000")
     os.system("echo '2 0;' | /Applications/Pd-0.47-1-64bit.app/Contents/Resources/bin/pdsend 3000")
+    """
+    os.system("echo '1 0;' | pdsend 3000")
+    os.system("echo '2 0;' | pdsend 3000")
     # Activate the server; this will keep running until you
     # interrupt the program with Ctrl-C
     server.serve_forever()
