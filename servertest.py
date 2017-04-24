@@ -25,7 +25,7 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
 
         # just send back the same data, but upper-cased
         self.request.sendall(self.data.upper())
-        os.system("echo '" + str(effect) + ' ' + str(cmd) + ";' | /Applications/Pd-0.47-1-64bit.app/Contents/Resources/bin/pdsend 3000")
+        os.system("echo '" + str(effect) + ' ' + str(cmd) + ";' | pdsend 3000")
 
 if __name__ == "__main__":
     HOST, PORT = "129.59.32.80", 9996
