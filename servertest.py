@@ -29,7 +29,7 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
 
 if __name__ == "__main__":
     """
-    HOST, PORT = "129.59.32.80", 9996
+    HOST, PORT = "fxpi.duckdns.org", 9996
     """
     HOST, PORT = str(os.system("ip -f inet -o addr show $INTERFACE|cut -d\  -f 7 | cut -d/ -f 1")), 9996
     # Create the server, binding to localhost on port 9999

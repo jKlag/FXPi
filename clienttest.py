@@ -1,7 +1,7 @@
 import socket
 import sys
 
-HOST, PORT = "129.59.32.80", 9996
+HOST, PORT = "fxpi.duckdns.org", 9996
 data = " ".join(sys.argv[1:])
 
 # Create a socket (SOCK_STREAM means a TCP socket)
