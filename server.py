@@ -22,7 +22,6 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
         if dataarr[1].upper() == 'ON':
             cmd = 1
 
-
         # just send back the same data, but upper-cased
         self.request.sendall(self.data.upper())
         os.system("echo '" + str(effect) + ' ' + str(cmd) + ";' | pdsend 3000")
@@ -38,6 +37,7 @@ if __name__ == "__main__":
     os.system("echo '1 0;' | /Applications/Pd-0.47-1-64bit.app/Contents/Resources/bin/pdsend 3000")
     os.system("echo '2 0;' | /Applications/Pd-0.47-1-64bit.app/Contents/Resources/bin/pdsend 3000")
     """
+    os.system("echo '0 1;' | pdsend 3000")
     os.system("echo '1 0;' | pdsend 3000")
     os.system("echo '2 0;' | pdsend 3000")
     os.system("echo '3 0;' | pdsend 3000")
