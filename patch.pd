@@ -1,71 +1,79 @@
-#N canvas 0 23 1440 803 10;
-#X obj 21 379 vcf~;
-#X obj 8 -18 adc~;
+#N canvas 0 22 1440 750 10;
+#X obj 216 379 vcf~;
+#X obj -4 -50 adc~;
 #X obj 336 726 dac~;
-#X floatatom 112 343 5 0 0 0 - - -, f 5;
-#X obj 112 210 vsl 15 128 0 20 0 0 empty empty empty 0 -9 0 10 -262144
+#X floatatom 307 343 5 0 0 0 - - -, f 5;
+#X obj 307 210 vsl 15 128 0 20 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 3366 1;
-#X obj 87 21 +~ 1;
-#X obj 88 42 *~ 0.5;
-#X obj 87 0 osc~ 2;
-#X obj 189 77 hsl 128 15 700 6000 0 0 empty empty empty -2 -8 0 10
+#X obj 282 21 +~ 1;
+#X obj 283 42 *~ 0.5;
+#X obj 282 0 osc~ 2;
+#X obj 384 77 hsl 128 15 700 6000 0 0 empty empty empty -2 -8 0 10
 -262144 -1 -1 0 1;
-#X obj 143 150 hsl 128 15 0 700 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 338 150 hsl 128 15 0 700 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X floatatom 140 169 6 0 0 0 - - -, f 6;
-#X floatatom 141 111 6 0 0 0 - - -, f 6;
-#X obj 141 92 -;
-#X obj 141 70 bang;
-#X obj 41 176 +~ 200;
-#X obj 40 94 *~ 1500;
-#X text 138 17 <-- LFO (Low-Frequency Oscillator;
-#X text 322 75 <-- Maximum of the freq. range;
-#X text 276 147 <-- Minimum of the freq. range;
-#X text 149 300 <-- "Q";
-#X text 60 380 <-- Voltage-Controlled band-pass filter;
-#X obj 92 -29 hsl 128 15 0.5 4 0 0 empty empty empty -2 -8 0 10 -262144
+#X floatatom 335 169 6 0 0 0 - - -, f 6;
+#X floatatom 336 111 6 0 0 0 - - -, f 6;
+#X obj 336 92 -;
+#X obj 336 70 bang;
+#X obj 236 176 +~ 200;
+#X obj 235 94 *~ 1500;
+#X text 333 17 <-- LFO (Low-Frequency Oscillator;
+#X text 517 75 <-- Maximum of the freq. range;
+#X text 471 147 <-- Minimum of the freq. range;
+#X text 344 300 <-- "Q";
+#X text 255 380 <-- Voltage-Controlled band-pass filter;
+#X obj 287 -29 hsl 128 15 0.5 4 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X text 273 427 Pierre Massat \, GuitarExtended \, 2012.s;
-#X obj 184 201 loadbang;
-#X msg 182 226 5.3;
-#X obj 437 -11 r audio_on_off;
-#X msg 429 39 \; pd dsp \$1 \;;
-#X obj 467 235 netreceive 3000;
-#X obj 400 359 s audio_on_off;
-#X obj 165 431 r wah;
-#X floatatom 390 294 5 0 0 0 - - -, f 5;
-#X floatatom 390 294 5 0 0 0 - - -, f 5;
-#X obj 89 486 *~;
-#X obj 158 506 == 0;
-#X obj 124 547 *~;
-#X obj 715 607 vd~ vibrato;
-#X obj 714 561 *~ 1;
-#X obj 826 430 vsl 15 128 1 5 0 0 empty empty empty 0 -9 0 10 -262144
+#X text 468 427 Pierre Massat \, GuitarExtended \, 2012.s;
+#X obj 379 201 loadbang;
+#X msg 377 226 5.3;
+#X obj 1061 -41 r audio_on_off;
+#X msg 1053 9 \; pd dsp \$1 \;;
+#X obj 1169 11 netreceive 3000;
+#X obj 1102 135 s audio_on_off;
+#X obj 798 333 r wah;
+#X floatatom 1092 70 5 0 0 0 - - -, f 5;
+#X floatatom 1092 70 5 0 0 0 - - -, f 5;
+#X obj 738 406 *~;
+#X obj 807 426 == 0;
+#X obj 773 467 *~;
+#X obj 976 595 vd~ vibrato;
+#X obj 975 549 *~ 1;
+#X obj 1087 418 vsl 15 128 1 5 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 715 583 +~ 2;
-#X obj 688 361 delwrite~ vibrato 50;
-#X obj 715 520 osc~ 2;
-#X obj 715 387 vsl 15 128 1 5 0 0 empty empty empty 0 -9 0 10 -262144
+#X obj 976 571 +~ 2;
+#X obj 949 349 delwrite~ vibrato 50;
+#X obj 976 508 osc~ 2;
+#X obj 976 375 vsl 15 128 1 5 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X floatatom 869 614 5 0 0 0 - - -, f 5;
-#X obj 869 592 +;
-#X obj 826 566 * 2;
-#X floatatom 757 498 5 0 0 0 - - -, f 5;
-#X text 906 615 <-- Maximum length of the delay line (= added latency!)
+#X floatatom 1130 602 5 0 0 0 - - -, f 5;
+#X obj 1130 580 +;
+#X obj 1087 554 * 2;
+#X floatatom 1018 486 5 0 0 0 - - -, f 5;
+#X text 1167 603 <-- Maximum length of the delay line (= added latency!)
 ;
-#X text 854 499 <-- Depth (change the length of the delay line);
-#X text 741 401 <-- Speed (frequency of the LFO);
+#X text 1115 487 <-- Depth (change the length of the delay line);
+#X text 1002 389 <-- Speed (frequency of the LFO);
 #X text 835 681 Pierre Massat \, GuitarExtended \, 2012;
-#X obj 23 15 *~ 5;
+#X obj 218 15 *~ 5;
 #X obj 434 600 *~;
 #X obj 503 620 == 0;
 #X obj 469 661 *~;
-#X obj 474 282 route 0 1 2;
-#X obj 501 358 s wah;
+#X obj 1261 128 s wah;
 #X floatatom 599 657 5 0 0 0 - - -, f 5;
 #X floatatom 529 700 5 0 0 0 - - -, f 5;
-#X obj 560 361 s vib;
 #X obj 510 545 r vib;
+#X obj 38 505 clip~ -0.5 0.5;
+#X text 95 451 <-- Amplify the sound from the guitar;
+#X obj 39 454 *~ 5;
+#X obj 96 357 *~;
+#X obj 165 377 == 0;
+#X obj 131 418 *~;
+#X obj 1176 58 route 0 1 2 3;
+#X obj 1308 131 s vib, f 6;
+#X obj 1209 137 s fuzz;
+#X obj 156 284 r fuzz;
 #X connect 0 0 32 0;
 #X connect 1 0 50 0;
 #X connect 4 0 3 0;
@@ -88,7 +96,7 @@
 #X connect 24 0 4 0;
 #X connect 25 0 26 0;
 #X connect 27 0 30 0;
-#X connect 27 0 54 0;
+#X connect 27 0 64 0;
 #X connect 29 0 32 1;
 #X connect 29 0 33 0;
 #X connect 32 0 53 0;
@@ -108,17 +116,27 @@
 #X connect 43 0 42 0;
 #X connect 44 0 38 1;
 #X connect 44 0 43 0;
-#X connect 50 0 0 0;
-#X connect 50 0 34 0;
+#X connect 50 0 60 0;
+#X connect 50 0 63 0;
 #X connect 51 0 2 0;
 #X connect 51 0 2 1;
 #X connect 52 0 53 1;
-#X connect 52 0 57 0;
+#X connect 52 0 56 0;
 #X connect 53 0 2 1;
 #X connect 53 0 2 0;
-#X connect 54 0 28 0;
-#X connect 54 1 55 0;
-#X connect 54 2 58 0;
-#X connect 59 0 51 1;
-#X connect 59 0 52 0;
-#X connect 59 0 56 0;
+#X connect 57 0 51 1;
+#X connect 57 0 52 0;
+#X connect 57 0 55 0;
+#X connect 58 0 61 0;
+#X connect 60 0 58 0;
+#X connect 61 0 0 0;
+#X connect 61 0 34 0;
+#X connect 62 0 63 1;
+#X connect 63 0 0 0;
+#X connect 63 0 34 0;
+#X connect 64 0 28 0;
+#X connect 64 1 66 0;
+#X connect 64 2 54 0;
+#X connect 64 3 65 0;
+#X connect 67 0 61 1;
+#X connect 67 0 62 0;

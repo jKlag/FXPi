@@ -11,7 +11,7 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
     """
 
     def handle(self):
-        EFFECTS = {"DSP":0,"WAH":1,"VIBRATO":2}
+        EFFECTS = {"DSP":0,"FUZZ":1,"WAH":2,"VIBRATO":3}
         # self.request is the TCP socket connected to the client
         self.data = self.request.recv(1024).strip()
         print "{} wrote:".format(self.client_address[0])
@@ -40,6 +40,7 @@ if __name__ == "__main__":
     """
     os.system("echo '1 0;' | pdsend 3000")
     os.system("echo '2 0;' | pdsend 3000")
+    os.system("echo '3 0;' | pdsend 3000")
     # Activate the server; this will keep running until you
     # interrupt the program with Ctrl-C
     server.serve_forever()
