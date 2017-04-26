@@ -12,19 +12,20 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
 
     def handle(self):
         EFFECTS = {"DSP":0,"FUZZ":1,"WAH":2,"VIBRATO":3}
-        # self.request is the TCP socket connected to the client
-        self.data = self.request.recv(1024).strip()
-        print "{} wrote:".format(self.client_address[0])
-        print self.data
-        dataarr = self.data.split(' ')
-        effect = EFFECTS[dataarr[0].upper()]
-        cmd = 0
-        if dataarr[1].upper() == 'ON':
-            cmd = 1
+        while True:
+            # self.request is the TCP socket connected to the client
+            self.data = self.request.recv(1024).strip()
+            print "{} wrote:".format(self.client_address[0])
+            print self.data
+            dataarr = self.data.split(' ')
+            effect = EFFECTS[dataarr[0].upper()]
+            cmd = 0
+            if dataarr[1].upper() == 'ON':
+                cmd = 1
 
-        # just send back the same data, but upper-cased
-        self.request.sendall(self.data.upper())
-        os.system("echo '" + str(effect) + ' ' + str(cmd) + ";' | pdsend 3000")
+            # just send back the same data, but upper-cased
+            self.request.sendall(self.data.upper())
+            os.system("echo '" + str(effect) + ' ' + str(cmd) + ";' | pdsend 3000")
 
 if __name__ == "__main__":
     """
