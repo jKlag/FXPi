@@ -11,6 +11,9 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
     """
 
     def handle(self):
+        """
+        Dictionary containing available effects
+        """
         EFFECTS = {"DSP":0,"FUZZ":1,"WAH":2,"VIBRATO":3,"DELAY":4}
         while True:
             # self.request is the TCP socket connected to the client
@@ -18,14 +21,17 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
             print "{} wrote:".format(self.client_address[0])
             print self.data
             dataarr = self.data.split(' ')
-            effect = EFFECTS[dataarr[0].upper()]
-            cmd = 0
-            if dataarr[1].upper() == 'ON':
-                cmd = 1
+            if dataarr[0].upper() in EFFECTS:
+                effect = EFFECTS[dataarr[0].upper()]
+                cmd = 0
+                if dataarr[1].upper() == 'ON':
+                    cmd = 1
 
-            # just send back the same data, but upper-cased
-            self.request.sendall(self.data.upper())
-            os.system("echo '" + str(effect) + ' ' + str(cmd) + ";' | pdsend 3000")
+                # just send back the same data, but upper-cased
+                self.request.sendall(self.data.upper())
+                os.system("echo '" + str(effect) + ' ' + str(cmd) + ";' | pdsend 3000")
+            else:
+                self.request.sendall(self.data.upper() + ":\nCommand not recognized")
 
 if __name__ == "__main__":
     HOST, PORT = str(os.system("ip -f inet -o addr show $INTERFACE|cut -d\  -f 7 | cut -d/ -f 1")), 9996

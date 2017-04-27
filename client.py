@@ -6,7 +6,8 @@ HOST, PORT = "fxpi.duckdns.org", 9996
 # Create a socket (SOCK_STREAM means a TCP socket)
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.settimeout(50)
-
+print "Type <effect> <on/off> to toggle effect"
+print "Type \"exit\" to quit"
 try:
     # Connect to server and send data
     sock.connect((HOST, PORT))
