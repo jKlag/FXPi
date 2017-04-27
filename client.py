@@ -19,6 +19,9 @@ try:
 
         # Receive data from the server and shut down
         received = sock.recv(1024)
-        print "TURNED {}".format(received)
+        if received[0] == 'x':
+            print received[1:]
+        else:
+            print "TURNED {}".format(received)
 finally:
     sock.close()

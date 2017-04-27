@@ -31,7 +31,7 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
                 self.request.sendall(self.data.upper())
                 os.system("echo '" + str(effect) + ' ' + str(cmd) + ";' | pdsend 3000")
             else:
-                self.request.sendall(self.data.upper() + ":\nCommand not recognized")
+                self.request.sendall("x" + self.data.upper() + ":\nCommand not recognized")
 
 if __name__ == "__main__":
     HOST, PORT = str(os.system("ip -f inet -o addr show $INTERFACE|cut -d\  -f 7 | cut -d/ -f 1")), 9996
