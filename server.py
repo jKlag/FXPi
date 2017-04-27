@@ -11,7 +11,7 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
     """
 
     def handle(self):
-        EFFECTS = {"DSP":0,"FUZZ":1,"WAH":2,"VIBRATO":3}
+        EFFECTS = {"DSP":0,"FUZZ":1,"WAH":2,"VIBRATO":3,"DELAY":4}
         while True:
             # self.request is the TCP socket connected to the client
             self.data = self.request.recv(1024).strip()
@@ -28,20 +28,14 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
             os.system("echo '" + str(effect) + ' ' + str(cmd) + ";' | pdsend 3000")
 
 if __name__ == "__main__":
-    """
-    HOST, PORT = "fxpi.duckdns.org", 9996
-    """
     HOST, PORT = str(os.system("ip -f inet -o addr show $INTERFACE|cut -d\  -f 7 | cut -d/ -f 1")), 9996
     # Create the server, binding to localhost on port 9999
     server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)
-    """
-    os.system("echo '1 0;' | /Applications/Pd-0.47-1-64bit.app/Contents/Resources/bin/pdsend 3000")
-    os.system("echo '2 0;' | /Applications/Pd-0.47-1-64bit.app/Contents/Resources/bin/pdsend 3000")
-    """
     os.system("echo '0 1;' | pdsend 3000")
     os.system("echo '1 0;' | pdsend 3000")
     os.system("echo '2 0;' | pdsend 3000")
     os.system("echo '3 0;' | pdsend 3000")
+    os.system("echo '4 0;' | pdsend 3000")
     # Activate the server; this will keep running until you
     # interrupt the program with Ctrl-C
     server.serve_forever()

@@ -2,13 +2,10 @@ import socket
 import sys
 
 HOST, PORT = "fxpi.duckdns.org", 9996
-"""
-data = " ".join(sys.argv[1:])
-"""
 
 # Create a socket (SOCK_STREAM means a TCP socket)
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
+sock.settimeout(50)
 
 try:
     # Connect to server and send data
