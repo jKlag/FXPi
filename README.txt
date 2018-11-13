@@ -10,3 +10,6 @@ Instructions for use:
   -Open client program with the terminal/CL command 'python client.py'
   -Enter commands of the form <effect> <on/off>
   -Type 'exit' to quit client program
+  
+  Presentation video link:
+  https://drive.google.com/open?id=0BygrRSynMldcWndWODF0SURRamc
